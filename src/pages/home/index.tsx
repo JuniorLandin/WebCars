@@ -140,7 +140,7 @@ export function Home() {
                >
               </div>
               <img
-                className="w-full rounded-lg mb-2 max-h-64 object-cover hover:scale-105 transition-transform"
+                className="w-full rounded-lg mb-2 h-64 object-cover hover:scale-105 transition-transform"
                 style={{ display: loadImages.includes(car.id) ? "block" : "none" }}
                 src={car.images[0].url}
                 alt={car.name}
