@@ -100,7 +100,7 @@ export function Dashboard() {
               <FiTrash2 size={26} color="#000"/>
             </button>
             <img
-              className="w-full rounded-lg mb-2 max-h-70"
+              className="w-full object-cover rounded-lg mb-2 h-64"
               src={item.images[0].url}
               alt={item.name} 
             />
