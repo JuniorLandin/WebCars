@@ -65,17 +65,24 @@ export function Home() {
     setCars([])
     setLoadImages([])
 
-    const q = query(
-      collection(db, "cars"),
-      where("name", ">=", input.toUpperCase()),
-      where("name", "<=", input.toUpperCase() + "\uf8ff")
-    )
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let q: any;
+
+    if (input !== undefined) {
+      const inputString: string = input;
+      q = query(
+        collection(db, "cars"),
+        where("name", ">=", inputString.toUpperCase()),
+        where("name", "<=", inputString.toUpperCase() + "\uf8ff")
+      )
+    }
 
     const querySnapshot = await getDocs(q)
 
     const listCars = [] as  CarsProps[];
 
-    querySnapshot.forEach((doc) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    querySnapshot.forEach((doc: any) => {
       listCars.push({
         id: doc.id,
         cidade: doc.data().cidade,
@@ -103,7 +110,8 @@ export function Home() {
           placeholder="Digite o nome do Carro"
           className="w-full h-9 border-2 rounded-lg px-4 outline-none"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onChange={(e: any) => setInput(e.target.value)}
         />
         <button 
          className="bg-red-500 h-9 px-8 rounded-lg text-white font-medium text-lg"
