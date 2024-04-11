@@ -107,7 +107,7 @@ export function New() {
         await handleUpload(image)
         console.log(image)
       } else {
-        alert("Envia uma imagem jpeg ou png")
+        toast.error("Envia uma imagem jpeg ou png")
         return;
       }
     }
